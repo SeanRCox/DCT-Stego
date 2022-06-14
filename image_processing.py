@@ -1,6 +1,17 @@
 from PIL import Image
 import numpy as np
 
+def closest_factor(num, fac): #Function for finding closest value that is a factor, used for resize on w and h
+    for i in range(fac):
+        print(num)
+        if (num + i) % fac == 0:
+            num += i
+            break
+        elif (num - i) % fac == 0:
+            num -= i
+            break
+    return num
+
 def get_image_data(file) : # opens image and returns the RGB data as a numpy array
     image = Image.open('sloth.jpg')
     return np.asarray(image)
